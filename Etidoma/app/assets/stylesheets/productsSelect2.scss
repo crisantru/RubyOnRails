@@ -1,0 +1,97 @@
+
+.producto {
+  margin-right: 10%;
+  margin-left: 25%;
+
+  table{
+
+    padding: 15px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+ td{
+
+    width: 80%;
+    padding: 15px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+div.page{
+  background-color: white;
+  width: 80%;
+  margin-left: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*menu vertical*/
+
+div.Blue_orange_menu {
+  margin-left: 2%;
+  background:url("blue_v_menu_bottom.gif") no-repeat bottom;
+  width:216px;
+  padding-bottom:3px;
+  float:left;
+}
+
+div.Blue_orange_menu h2 {
+  background:url("blue_v_menu_header.gif") no-repeat left top;
+  height:32px;
+  line-height:32px;
+  font-weight:normal;
+  color:#FFFFFF;
+  font-size:14px;
+  margin:0;
+  padding:0 0 0 8px;
+  font-size:16px;
+}
+
+div.Blue_orange_menu ul {
+  margin:0px;
+  background:#FFF;
+  display:block;
+  float:left;
+  width:216px;
+  padding:1px 4px 1px 2px;
+  list-style:none; border:solid 1px #4599ef; border-width:0 1px;
+}
+
+div.Blue_orange_menu ul li {
+  margin:0;
+  padding:0;
+  list-style:none;
+  clear:both;
+}
+  div.Blue_orange_menu ul li a {
+  background:#737171 url("blue_v_menu_a_left.gif") no-repeat left top;
+  color:#ffffff;
+  float:left;
+  margin:4px 2px 1px 2px;
+  padding:0;
+  font-size:12px;
+  text-decoration:none;
+  width:205px;
+  font: bold 12px Verdana, Arial, Helvetica, sans-serif
+}
+
+div.Blue_orange_menu ul li a span {
+  background:url("blue_v_menu_a_right.gif") no-repeat right top;
+  color:#ffffff;
+  padding:7px 0 7px 25px;
+  display:block;
+  margin:0 0 0 0;
+}
+
+div.Blue_orange_menu ul li a:hover {
+  background:#737171 url("blue_v_menu_a_left_o.gif") no-repeat left top;
+}
+
+  div.Blue_orange_menu ul li a:hover span {
+  background:url("blue_v_menu_a_right_o.gif") no-repeat right top;
+}

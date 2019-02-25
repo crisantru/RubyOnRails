@@ -1,0 +1,140 @@
+/* contenedor de imagen*/
+.polaroid{
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.page{
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.nav{
+  margin: 0 auto;
+
+}
+
+div.container{
+  margin: 0 auto;
+}
+
+div.table{
+  margin: 0 auto;
+}
+
+table {
+  /*margin-left: 17%;
+  margin: 0 auto;*/
+  border-collapse: separate;
+  border-spacing: 40px;
+}
+
+p{
+  font-size: 18px;
+}
+
+.image{
+  width: 220px;
+  height: 186px;
+}
+
+td{
+  text-align:center;
+}
+
+/*titulos*/
+
+.titulo {
+
+  display: inline-block;
+  margin: 0 0.2em;
+  padding: 3px;
+  background: #53A7EA;
+  border-radius: 2px;
+  transition: all 0.3s ease-out;
+
+  /* Font styles */
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+
+}
+
+.titulo:hover{
+	 background: #2C516E;
+ }
+.titulo:active{
+	 background: #C4E1F8;
+ }
+.titulo:visited{
+	background: #F2BF97;
+}
+
+/*menu vertical*/
+
+div.Blue_orange_menu {
+  margin-left: 2%;
+  
+  background:url("blue_v_menu_bottom.gif") no-repeat bottom;
+  width:216px;
+  padding-bottom:3px;
+  float:left;
+}
+
+div.Blue_orange_menu h2 {
+  background:url("blue_v_menu_header.gif") no-repeat left top;
+  height:32px;
+  line-height:32px;
+  font-weight:normal;
+  color:#FFFFFF;
+  font-size:14px;
+  margin:0;
+  padding:0 0 0 8px;
+  font-size:16px;
+}
+
+div.Blue_orange_menu ul {
+  margin:0px;
+  background:#FFF;
+  display:block;
+  float:left;
+  width:216px;
+  padding:1px 4px 1px 2px;
+  list-style:none; border:solid 1px #4599ef; border-width:0 1px;
+}
+
+div.Blue_orange_menu ul li {
+  margin:0;
+  padding:0;
+  list-style:none;
+  clear:both;
+}
+  div.Blue_orange_menu ul li a {
+  background:#737171 url("blue_v_menu_a_left.gif") no-repeat left top;
+  color:#ffffff;
+  float:left;
+  margin:4px 2px 1px 2px;
+  padding:0;
+  font-size:12px;
+  text-decoration:none;
+  width:205px;
+  font: bold 12px Verdana, Arial, Helvetica, sans-serif
+}
+
+div.Blue_orange_menu ul li a span {
+  background:url("blue_v_menu_a_right.gif") no-repeat right top;
+  color:#ffffff;
+  padding:7px 0 7px 25px;
+  display:block;
+  margin:0 0 0 0;
+}
+
+div.Blue_orange_menu ul li a:hover {
+  background:#737171 url("blue_v_menu_a_left_o.gif") no-repeat left top;
+}
+
+  div.Blue_orange_menu ul li a:hover span {
+  background:url("blue_v_menu_a_right_o.gif") no-repeat right top;
+}

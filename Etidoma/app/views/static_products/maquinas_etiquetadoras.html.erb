@@ -1,0 +1,37 @@
+<%= render 'static_products/form' %>
+<%= stylesheet_link_tag 'productsSelect2', media: 'all', 'data-turbolinks-track' => true %>
+<div class="page">
+  <br><%= link_to '<i class="material-icons md-dark md-48" style="margin-left:40px">arrow_back</i>'.html_safe, :back %>
+      <%= link_to '<i class="material-icons md-dark md-48">home</i>'.html_safe, :root %>
+  <h2 style="text-align:center; color:red; font-size:35px;">Maquinas Etiquetadoras</h2><br>
+    <div class="Blue_orange_menu">
+    	<h2 style="text-align:center">Productos</h2>
+    	<ul class="leftmenu">
+    	<li><a href="/static_products/aplicadores_manuales" title="Ver Aplicadores Manuales"><span>Aplicadores Manuales</span></a></li>
+    	<li><a href="/static_products/etiquetas" title="Ver Etiquetas"><span>Etiquetas</span></a></li>
+    	<li><a href="/static_products/impresoras_codigo_barras" title="Ver Imprsoras de Codigo de Barras"><span>Impresoras Codigo Barras</span></a></li>
+    	<li><a href="/static_products/maquinas_etiquetadoras" title="Ver maquinas Etiquetadoras"><span>Maquinas Etiquetadoras</span></a></li>
+    	<li><a href="/static_products/ribbons" title="Ver Ribbons"><span>Ribbons</span></a></li>
+    	<li><a href="/static_products/sujetadores" title="Ver Sujetadores"><span>Sujetadores</span></a></li>
+    	</ul>
+    </div>
+
+
+    <table class="producto">
+      <tr >
+        <th>Vista</th>
+        <th>Nombre</th>
+      </tr><br>
+
+        <% @maquinas.where(categoria: 'Maquinas Etiquetadoras').take(15).each do |product| %>
+        <tr>
+          <div class="polaroid">
+            <td><%= image_tag product.image.url,:size => "260x220" %></td>
+            <td><%= product.nombre %></td>
+            <td><%= link_to 'Ver Detalles', static_product_path(product) %><br>
+              <%= link_to '<i class="material-icons md-dark md-24">add_circle</i>'.html_safe, static_product_path(product), :target => '_blank'  %></td>
+          </div>
+        </tr>
+        <% end %>
+    </table><br><br><br>
+</div>

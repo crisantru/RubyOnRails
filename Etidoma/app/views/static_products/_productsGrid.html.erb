@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<%= stylesheet_link_tag 'productsSelect.css', media: 'all', 'data-turbolinks-track' => true %>
+
+	</head>
+	<body>
+
+		<div class="page">
+
+			<div class="nav">  <!-- Div Iconos-->
+				<br><%= link_to '<i class="material-icons md-dark md-48" style="margin-left:40px">arrow_back</i>'.html_safe, :back %>
+						<%= link_to '<i class="material-icons md-dark md-48">home</i>'.html_safe, :root %>
+				<h2 style="text-align:center; color:red; font-size:50px;">PRODUCTOS</h2>
+			</div>
+
+			<div class="container">	<!-- Div Contenedor-->
+
+				<div class="Blue_orange_menu">	<!-- Menu-->
+					<h2 style="text-align:center">Productos</h2>
+					<ul class="leftmenu">
+					<li><a href="/static_products/aplicadores_manuales" title="Ver Aplicadores Manuales"><span>Aplicadores Manuales</span></a></li>
+					<li><a href="/static_products/etiquetas" title="Ver Etiquetas"><span>Etiquetas</span></a></li>
+					<li><a href="/static_products/impresoras_codigo_barras" title="Ver Imprsoras de Codigo de Barras"><span>Impresoras Codigo Barras</span></a></li>
+					<li><a href="/static_products/maquinas_etiquetadoras" title="Ver maquinas Etiquetadoras"><span>Maquinas Etiquetadoras</span></a></li>
+					<li><a href="/static_products/ribbons" title="Ver Ribbons"><span>Ribbons</span></a></li>
+					<li><a href="/static_products/sujetadores" title="Ver Sujetadores"><span>Sujetadores</span></a></li>
+					</ul>
+				</div>
+
+				<div class="table">	<!-- Div Table-->
+					<table>
+						<tr>
+							<td>
+								<div class="polaroid">
+									<a href="/static_products/aplicadores_manuales">
+									<%= image_tag("AP6530.jpg", :title => "Ver Aplicadores Manuales", :class => "image") %>
+								</div>
+								<br><p class="titulo">Ver Aplicadores</p><br>
+								<%= link_to  '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_aplicadores_manuales %>
+							</td>
+
+							<td>
+								<div class="polaroid">
+									<a href="/static_products/etiquetas">
+									<%= image_tag("etiquetas.jpg", :title => "Ver Etiquetas", :class => "image") %>
+								</div>
+								<br><p class="titulo">Ver Etiquetas</p><br>
+								<%= link_to '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_etiquetas %>
+							</td>
+
+							<td>
+								<div class="polaroid">
+									<a href="/static_products/impresoras_codigo_barras">
+									<%= image_tag("impresoras.jpg", :title => "Ver Impresora Codigo de Barras", :class => "image") %>
+								</div>
+								<br><p class="titulo">Ver Impresoras</p><br>
+								<%= link_to '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_impresoras_codigo_barras  %>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="polaroid">
+									<a href="/static_products/maquinas_etiquetadoras">
+									<%= image_tag("maquinas_etiquetadoras.jpg", :title => " Ver Maquinas Etiquetadoras", :class => "image") %>
+								</div>
+								<br><p class="titulo">Ver Etiquetadoras</p><br>
+								<%= link_to '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_maquinas_etiquetadoras %>
+							</td>
+
+							<td>
+								<div class="polaroid">
+									<a href="/static_products/ribbons">
+									<%= image_tag("ribbons.jpg", :title => "Ver Ribbons", :class => "image") %>
+								</div>
+								<br><p class="titulo">Ver Ribbons</p><br>
+								<%= link_to '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_ribbons %>
+							</td>
+
+							<td >
+								<div class="polaroid">
+									<a href="/static_products/sujetadores">
+									<%= image_tag("sujetadores.jpg", :title => "Ver Sujetadores", :class => "image") %>
+								</div>
+									<br><p class="titulo">Ver Sujetadores</p><br>
+									<%= link_to '<i class="material-icons md-dark md-36">add_circle</i>'.html_safe, :static_products_sujetadores  %>
+							</td>
+						</tr>
+
+					</table>
+
+				</div><!-- Div Table-->
+			</div><!-- Div Container-->
+		</div><!-- Page-->
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+
+
+
+
+
+			
+
+	</body>
+</html>

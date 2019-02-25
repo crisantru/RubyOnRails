@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cotizaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Razonsocial</th>
+      <th>Email</th>
+      <th>Cotizacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nombre %></td>
+        <td><%= user.razonSocial %></td>
+        <td><%= user.telefono %></td>
+        <td><%= user.email %></td>
+        <td><%= user.cotizacion %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

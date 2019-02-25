@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Etidoma</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag 'static_products.css', media: 'all', 'data-turbolinks-track' => true %>
+
+
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+
+						<!-- Header -->
+							<header id="header">
+								<div class="inner">
+
+									<!-- Logo -->
+										<h1><%= link_to "E T I D O M A", root_path %></h1>
+										<!-- Nav -->
+											<nav id="nav">
+												<ul>
+													<li class="current_page_item"><%= link_to "Home", root_path %></li>
+													<li><%= link_to "Quienes Somos", whoares_path %></li>
+													<li>
+														<%= link_to "Productos", static_products_catalogo_path %>
+														<ul>
+															<li><%= link_to "Aplicadores Manuales", static_products_aplicadores_manuales_path %></li>
+															<li><%= link_to "Etiquetas", static_products_etiquetas_path  %></li>
+															<li><%= link_to "Impresoras Codigo de Barras", static_products_impresoras_codigo_barras_path %></li>
+															<li><%= link_to "Maquinas Etiquetadoras", static_products_maquinas_etiquetadoras_path %></li>
+															<li><%= link_to "Ribbons",  static_products_ribbons_path %></li>
+															<li><%= link_to "Sujetadores", static_products_sujetadores_path %></li>
+														</ul>
+													</li>
+													<li><%= link_to "Servicios", services_path %></li>
+													<li><%= link_to "Contacto", new_user_path %></li>
+												</ul>
+											</nav>
+								</div>
+							</header>
+
+						<!-- Banner -->
+
+					</div>
+				</div>
+        </div>
+
+				<!-- Table Products-->
+
+
+
+
+		<!-- Scripts -->
+			<%= javascript_include_tag "jquery.min.js" , 'data-turbolinks-track' => true%>
+			<%= javascript_include_tag "jquery.dropotron.min.js" , 'data-turbolinks-track' => true%>
+			<%= javascript_include_tag "skel.min.js" , 'data-turbolinks-track' => true%>
+			<%= javascript_include_tag "skel-viewport.min.js" , 'data-turbolinks-track' => true%>
+			<%= javascript_include_tag "util.js" , 'data-turbolinks-track' => true%>
+			<%= javascript_include_tag "main.js" , 'data-turbolinks-track' => true%>
+
+	</body>
+</html>

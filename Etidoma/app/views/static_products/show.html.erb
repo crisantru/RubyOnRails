@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag 'mirrorTable', media: 'all', 'data-turbolinks-track' => true %>
+<%= render 'products/form' %>
+<div class="page">
+  <br><%= link_to '<i class="material-icons md-dark md-48" style="margin-left:40px">arrow_back</i>'.html_safe, :back %>
+      <%= link_to '<i class="material-icons md-dark md-48">home</i>'.html_safe, :root %>
+  <h2 style="text-align:center; color:red; font-size:35px;">Aplicadores Manuales</h2>
+    <div class="Blue_orange_menu">
+    	<h2 style="text-align:center">Productos</h2>
+    	<ul class="leftmenu">
+    	<li><a href="/static_products/aplicadores_manuales" title="Ver Aplicadores Manuales"><span>Aplicadores Manuales</span></a></li>
+    	<li><a href="/static_products/etiquetas" title="Ver Etiquetas"><span>Etiquetas</span></a></li>
+    	<li><a href="/static_products/impresoras_codigo_barras" title="Ver Imprsoras de Codigo de Barras"><span>Impresoras Codigo Barras</span></a></li>
+    	<li><a href="/static_products/maquinas_etiquetadoras" title="Ver maquinas Etiquetadoras"><span>Maquinas Etiquetadoras</span></a></li>
+    	<li><a href="/static_products/ribbons" title="Ver Ribbons"><span>Ribbons</span></a></li>
+    	<li><a href="/static_products/sujetadores" title="Ver Sujetadores"><span>Sujetadores</span></a></li>
+    	</ul>
+    </div>
+
+<div>
+  <h2 style="margin-left:31%">Información General del Producto</h2><br>
+
+  <p style="margin-left:45%">
+    <%= image_tag @product.image.url(:medium) %>
+  </p>
+
+<table class="producto">
+  <tr>
+    <th><h2>Nombre</h2></th>
+    <th><h2>Categora</h2></th>
+    <th><h2>Descripcion</h2></th>
+    <th><h2>Especificaciones</h2></th>
+    <th><h2>Presentacion</h2></th>
+  </tr><br>
+
+  <tr>
+    <td><%= @product.nombre %></td>
+    <td><%= @product.categoria %></td>
+    <td><%= @product.descripcion %></td>
+    <td><%= @product.especificaciones %></td>
+    <td><%= @product.presentacion %></td>
+  </tr>
+</table>
+<br><br><br>
+</div>

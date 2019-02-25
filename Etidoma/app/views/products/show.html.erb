@@ -1,0 +1,35 @@
+<div style="text-align:center">
+  <h2>Información General del Producto</h2><br>
+
+  <p>
+    <%= image_tag @product.image.url(:medium) %>
+  </p>
+
+  <p>
+    <strong>Nombre:</strong>
+    <%= @product.nombre %>
+  </p>
+
+  <p>
+    <strong>Categoria:</strong>
+    <%= @product.categoria %>
+  </p>
+
+  <p>
+    <strong>Descripcion:</strong>
+    <%= @product.descripcion %>
+  </p>
+
+  <p>
+    <strong>Especificaciones:</strong>
+    <%= @product.especificaciones %>
+  </p>
+
+  <p>
+    <strong>Presentacion:</strong>
+    <%= @product.presentacion %>
+  </p>
+
+  <%= link_to 'Editar', edit_product_path(@product) %> |
+  <%= link_to 'Regresar', products_path %>
+</div>
