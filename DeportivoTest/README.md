@@ -1,7 +1,7 @@
 # Ruby On Rails + Openshift
 
 > Sistema Web para tienda de articulos deportivos.
-> Compra de articulos, gestión de stock e almacenamiento de articulos.
+> CRUD articulos, Carrito de compras.
 
 - Herramientas Utilizadas:
   1. Framework: Ruby on Rails.
