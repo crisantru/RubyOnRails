@@ -1,0 +1,65 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Agregar Articulos</h1>
+            
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+
+            <% @id_compra = session[:id_compra_session] %>
+            <%= render 'form' %>
+
+            <%= link_to 'Back', articles_orders_path %>
+
+              <div class='products_list'>
+              Listado de Productos
+                        <table>
+                          <thead>
+                            <tr>
+                              <th colspan="3"></th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                                <td> Pruducto </td>
+                                <td> Cantidad </td>
+                                <td> Precio </td>
+                                <td> Subtotal </td>
+                            </tr>
+                            <% @articles_orders.each do |articles_order| %>
+                              <% id_producto = articles_order[:article_id] %>
+                              <tr>
+                                <% producto = Article.find(id_producto) %>
+                                <td> <%= producto[:name] %>
+                                <td> <%= articles_order[:total_article] %>
+                                <td> $<%= articles_order[:price] %>
+                                <td> $<%= articles_order[:subtotal] %>
+                                <td><%= link_to 'Detalle', articles_order %></td>
+                                <td><%= link_to 'Editar', edit_articles_order_path(articles_order) %></td>
+                                <td><%= link_to 'Eliminar', articles_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                            <% end %>
+                          </tbody>
+                        </table>
+              </div>            
+        </article>
+    </div>
+    
+</div>

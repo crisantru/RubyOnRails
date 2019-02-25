@@ -1,0 +1,36 @@
+#nombre, #rfc,
+#telefono,
+#last_name{
+    font: 15px Ubuntu, sans-serif;
+    width: 100%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#nombre:hover, 
+#rfc:hover,
+#telefono:hover,
+#last_name:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+

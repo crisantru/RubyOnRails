@@ -1,0 +1,2 @@
+module ShipmentsArticlesHelper
+end

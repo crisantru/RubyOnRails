@@ -1,0 +1,97 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_shipments.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+       <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <% estatus = { 'Enviado' => 'Enviado', 'Recibido' => 'Recibido' } %>
+    
+    <div class="contenido">
+        <article>
+            <h1>Envios</h1>            
+            <h3>Búsquedas</h3>
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+            
+            <%= javascript_include_tag "buscar_envios" %>
+            <hr>
+             <table class="table">
+             
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por ID", id: "label" %> </td>
+               <td> <%= text_field_tag 'id', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_ID", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+              
+             <tr>
+            <%= form_tag do %>
+                <td> <%= label_tag "client_lbl", "Buscar por Cliente", id: "label" %> </td>
+                <td><%= select_tag 'client', options_for_select(@lista_clientes) %></td>
+                 <td><%= submit_tag 'Buscar', {:type => 'button', :id => 'boton_buscar_cliente', class: 'button' } %></td>
+                 
+            <% end %>     
+            </tr>
+                 
+             <tr>
+            <%= form_tag do %>
+                <td> <%= label_tag "status_lbl", "Buscar por Status   ", id: "label" %> </td>
+                <td> <%= select_tag 'status', options_for_select(estatus) %> </td>
+                <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_status", class: 'button' } %> </td>  
+            <% end %>     
+            </tr>
+             
+            </table>
+            <hr>
+            <div id= "respuesta"></div>
+            
+            
+            <% if not @envios.nil? and not @envios.blank? %>
+            <br>
+            <h2>Resultados de la búsqueda</h2>
+            <table class= "datos">
+               
+                <tr id= "col">
+                    <td id= "e"> ID Envio </td>
+                    <td id= "e"> Cliente </td>
+                    <td id= "e" > Status </td>
+                    <td id= "e"> ID de Venta </td>
+                </tr>
+                
+               <% @envios.each do |envio| %>
+                <tr>
+                  <td> <%= envio.shipments_id %> </td>
+                    
+                  <% cliente = Client.find(envio.client_id) %> 
+                  <td> <%= cliente.name %></td>
+                    
+                  <td> <%= envio.status %> </td>
+                    
+                  <% id_venta = Sale.find(envio.sale_id) %>
+                  <td> <%= id_venta.sales_id %></td> 
+                    
+                  <td> <%= link_to 'Editar', edit_shipment_path(envio) %> </td>
+                  <td> <%= link_to 'Eliminar', envio, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+                <% end %>
+                </tr>
+              </table>
+              <% end %> 
+
+        </article>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_bills.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+
+            <h1>Agregar Ventas a Factura #<%= session[:id_factura] %></h1>
+
+            <% if notice %>
+            <p id="error_explanation">
+              <%= notice %>
+            </p>
+            <% end %>
+
+            <hr>
+            <%= render 'form' %>
+            <hr>
+            <br>
+            
+            <%= link_to 'Regresar', articles_bills_path, class: 'button' %>
+
+           
+            <h2>Lista de Ventas agregadas</h2>
+            <% if not @ventas.nil? and not @ventas.blank? %>
+                <table class="datos">
+                <tr id= "col">
+                    <td id= "e">Número de Factura</td>
+                    <td id= "e">Número de Venta</td>
+                    <td id= "e">Tipo de Venta</td>
+                    <td id= "e">Fecha</td>
+                    <td id= "e">Cliente</td>
+                    <td id= "e">RFC</td>
+                    <td id= "e">Vendedor</td>
+                </tr>
+
+                <% @ventas.each do |venta| %>
+                <tr>
+                    <td><%= venta.numero_factura %></td>
+                    <td><%= venta.numero_venta %></td>
+                    <td><%= venta.sales_type %></td>
+                    <td><%= venta.sales_date %></td>
+                    <td><%= venta.nombre_cliente %></td>
+                    <td><%= venta.rfc %></td>
+                    <td><%= venta.vendedor %></td>
+                    <td><%= link_to 'Eliminar', venta, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+            <% end %>
+            </table>
+        </article>
+    </div>
+</div>

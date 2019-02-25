@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "datos_user.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+       
+        
+        
+    </div>
+    
+
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+
+        
+    <div class="contenido">
+        <%= image_tag("user.png") %>
+        <div class="datos">
+        <article>
+            <h1>¡Bienvenido <%= session[:user_name] %>!</h1>
+            <br>
+
+             <p>
+                <h3><b>Datos Personales</b></h3>
+                No. de Personal: <%= @empleado.staff_id %><br>
+                Nombre: <%= @empleado.name + " " + @empleado.last_name %><br>
+                Dirección: <%= @empleado.address %><br>
+                Teléfono: <%= @empleado.phone %><br>
+                Correo: <%= @empleado.email %><br><hr>
+                Salario Actual: $<%= @datos_puesto.pay %><br>
+                Puesto: <%= @datos_puesto.position %><br>
+                Jornada Laboral: <%= @datos_puesto.hours %> hrs<br><hr>
+                Sucursal: <%= @sucursal.name  %><br>
+                Dirección: <%= @sucursal.address  %><br>
+                Teléfono: <%= @sucursal.phone  %><br>
+
+
+             </p>
+
+        </article>
+        
+    </div>
+    
+</div>
+
+

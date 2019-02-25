@@ -1,0 +1,93 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_clients.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Clientes</h1>
+            <h3>Búsqueda</h3>
+            <hr>
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+
+            <%= javascript_include_tag "buscar_clientes" %>
+        
+            <table class="table">
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "nombre_lbl", "Buscar por Nombre",id: "label" %> </td>
+               <td> <%= text_field_tag 'nombre', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_nombre", class: 'button'} %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "rfc_lbl", "Buscar por RFC",id: "label" %> </td>
+               <td> <%= text_field_tag 'rfc', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_rfc", class: 'button'} %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "telefono_lbl", "Buscar por Teléfono",id: "label" %> </td>
+               <td> <%= text_field_tag 'telefono', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_telefono", class: 'button'} %> </td>
+            <% end %>
+            </tr>
+            </table>
+        <hr>
+            <div id="respuesta"></div>
+          
+            <% if not @clientes_buscados.nil? and not @clientes_buscados.blank? %>
+            <br>
+            <h2> Resultados de la búsqueda </h2>
+            <table class="datos">
+              <thead>
+                <tr>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>            
+              <tr id= "col">
+                <td id= "e"> Nombre </td>
+                <td id= "e"> RFC </td>
+                <td id= "e"> Dirección </td>
+                <td id= "e"> Teléfono </td>
+                <td id= "e"> Email </td>
+                <td id= "e"> Tipo </td>
+            </tr>
+
+          <% @clientes_buscados.each do |cliente| %>
+            <tr>
+              <td> <%= cliente.name %> </td>
+              <td> <%= cliente.rfc %> </td>
+              <td> <%= cliente.address %> </td>
+              <td> <%= cliente.phone %> </td>
+              <td> <%= cliente.email %> </td>
+              <td> <%= cliente.client_type %> </td>
+              <td> <%= link_to 'Editar', edit_client_path(cliente) %> </td>
+              <td> <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+            <% end %>
+          </table>
+          <% end %> 
+
+        </article>
+    </div>
+</div>

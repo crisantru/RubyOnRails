@@ -1,0 +1,45 @@
+#fecha, #almacen,#order_stock_id{
+    font: 15px Ubuntu, sans-serif;
+    width: 99%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#fecha:hover,#almacen:hover, #order_stock_id:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+#order_provider_id, #order_order_date_1i, #order_order_date_2i, #order_order_date_3i{
+ont: 15px Ubuntu, sans-serif;
+    width: 30%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+
+}
+
+
+
+
+

@@ -1,0 +1,111 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_articles.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Articulos</h1>
+            <h3>Búsqueda</h3>
+            <hr>
+            
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+        
+            <%= javascript_include_tag "buscar_articulos" %>
+    
+
+        
+            <table class="table">
+                
+                <tr>
+                    <%= form_tag do %>
+                    
+                  <td> <%= label_tag "categoria_lbl", "Buscar por Categoría",id: "label" %> </td>
+                   <td><%= select_tag 'categoria', options_for_select(@categoria) %> </td>
+                   <td><%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_categoria", class: 'button'} %> </td>
+                    
+                    <% end %>
+                
+                </tr>
+        
+                <tr>
+                    <%= form_tag do %>
+
+                    <td><%= label_tag "marca_lbl", "Buscar por Marca",id: "label" %> </td>
+                    <td><%= select_tag 'marca', options_for_select(@marca) %> </td>
+                    <td><%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_marca", class: 'button'} %></td>
+                    
+                     <% end %>
+
+                
+                </tr>
+                
+                <tr>
+                    
+                    <%= form_tag do %>
+                    
+                    <td><%= label_tag "modelo_lbl", "Buscar por Modelo",id: "label" %></td>
+                    <td><%= text_field_tag 'modelo', ''%> </td>
+                    <td><%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_modelo", class: 'button'} %> </td>
+                       
+                    <% end %>
+                
+                
+                </tr>
+        
+    
+            </table>
+            <hr>
+          <div id="respuesta"></div>
+        
+          <% if not @articles_busqueda.nil? and not @articles_busqueda.blank? %>
+            <br>
+            <h2> Resultados de la búsqueda </h2>
+            <table class="datos">
+              <thead>
+                <tr>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>            
+              <tr id="col">
+                <td id="e"> Nombre </td>
+                <td id="e"> Categoría </td>
+                <td id="e"> Marca </td>
+                <td id="e"> Modelo </td>
+                <td id="e"> Talla </td>
+                <td id="e"> Precio </td>
+            </tr>
+
+          <% @articles_busqueda.each do |article| %>
+            <tr>
+              <td> <%= article.name %> </td>
+              <td> <%= article.category %> </td>
+              <td> <%= article.patent %> </td>
+              <td> <%= article.model %> </td>
+              <td> <%= article.size %> </td>
+              <td> $<%= article.price %> </td>
+              <td> <%= link_to 'Ver más', article %>
+              <td> <%= link_to 'Editar', edit_article_path(article) %> </td>
+              <td> <%= link_to 'Eliminar', article, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+            <% end %>
+          </table>
+          <% end %>         
+
+        </article>
+    </div>
+</div>

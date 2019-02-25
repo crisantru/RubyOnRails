@@ -1,0 +1,52 @@
+#sale_sales_date_3i, #sale_sales_date_2i, #sale_sales_date_1i{
+     font: 15px Ubuntu, sans-serif;
+    width: 31%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+ 
+ 
+ }
+
+#sale_sales_date_3i:hover, #sale_sales_date_2i:hover, #sale_sales_date_1i:hover{
+     border-color:#d14343; 
+    border-style: solid;
+}
+
+
+#sale_client_id, #sale_staff_id, #sale_id, #sale_client, #sale_date, #staffs,#sale_type{
+    font: 15px Ubuntu, sans-serif;
+    width: 97%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+}
+
+#sale_client_id:hover, #sale_staff_id:hover, #sale_id:hover, #sale_client:hover, #sale_date:hover, #staffs:hover,#sale_type:hover{
+     border-color:#d14343; 
+    border-style: solid;
+
+}
+
+
+
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 10px 18px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+
+
+
+

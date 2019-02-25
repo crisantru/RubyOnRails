@@ -1,0 +1,86 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_orders.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <<%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Compras</h1>
+            <h3>Búsqueda</h3>
+            <hr>
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+
+          <%= javascript_include_tag "buscar_compras" %>
+        
+            <table class="table">
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "fecha_lbl", "Buscar por Fecha", id: "label" %> </td>
+               <td> <%= date_field_tag 'fecha', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_fecha", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "almacen_lbl", "Buscar por Almacen", id: "label" %> </td>
+               <td> <%= select_tag 'almacen', options_for_select(@lista_almacenes) %> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_almacen", class: 'button'} %> </td>
+            <% end %>
+            </tr>
+            </table>
+            <hr>
+        
+            <div id="respuesta"></div>
+
+            <% if not @compras_buscadas.nil? and not @compras_buscadas.blank? %>
+            <br>
+            <h2> Resultados de la búsqueda </h2>
+            <table class="datos">
+              <thead>
+                <tr>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>            
+              <tr id="col">
+                <td id= "e"> Fecha </td>
+                <td id= "e"> Almacen </td>
+                <td id= "e"> Pedido por </td>
+                <td id= "e"> Proveedor </td>
+            </tr>
+
+          <% @compras_buscadas.each do |compra| %>
+            <tr>
+              <td> <%= compra.order_date %> </td>
+              <% almacen = Stock.find(compra.stock_id) %>
+              <td> <%= almacen.address %> </td>
+              <% vendedor = Staff.find(compra.staff_id) %>
+              <td> <%= vendedor.name %> </td>
+              <% proveedor = Provider.find(compra.provider_id) %>
+              <td> <%= proveedor.name %> </td>
+              <td> <%= link_to 'Detalle', compra %> </td>
+              <td> <%= link_to 'Editar', edit_order_path(compra) %> </td>
+              <td> <%= link_to 'Eliminar', compra, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+            <% end %>
+          </table>
+          <% end %> 
+
+        </article>
+    </div>
+</div>

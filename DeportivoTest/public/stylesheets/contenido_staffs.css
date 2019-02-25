@@ -1,0 +1,34 @@
+#nombre, #apellido,#telefono, #sucursal, #name, #last_name, #address, #phone, #email, #staff_type_id, #staff_branch_id{
+    font: 15px Ubuntu, sans-serif;
+    width: 99%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#nombre:hover,#apellido:hover, #telefono:hover, #sucursal:hover, #name:hover, #last_name:hover, #address:hover, #phone:hover, #email:hover, #staff_type_id:hover, #staff_branch_id:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+#address{
+    resize: none;
+}
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+

@@ -1,0 +1,37 @@
+<%= form_for(@staff_type) do |f| %>
+  <% if @staff_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff_type.errors.count, "error") %> prohibited this staff_type from being saved:</h2>
+
+      <ul>
+      <% @staff_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% puestos = { 'Jefe' => 'Jefe', 'Gerente' => 'Gerente', 'Vendedor' => 'Vendedor' } %>
+
+ <div class="forms">
+     <table>
+      <tr>
+      <td><%= f.hidden_field :position %></td>
+      </tr>
+      
+      <tr>
+          <td><%= f.label 'Salario', for: "text" %></td>
+          <td><%= f.text_field :pay, id: "instrucciones" %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label 'Hrs/Dia', for: "text" %></td>
+        <td><%= f.text_field :hours, id: "instrucciones" %></td>
+      </tr>
+     </table>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit 'Envíar', class: 'button' %>
+  </div>
+<% end %>

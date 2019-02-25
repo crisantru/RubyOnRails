@@ -1,0 +1,47 @@
+<%= form_for(@shipment) do |f| %>
+  <% if @shipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+      <% @shipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% estatus = { 'Enviado' => 'Enviado', 'Recibido' => 'Recibido' } %>
+
+
+  <div class="forms">
+
+      <table>
+          <tr>
+            <td> <%= f.label :Estatus, for: "text" %> </td>
+            <td> <%= f.select :status, estatus %> </td>
+          </tr>
+          
+          <tr>
+            <td> <%= f.label "Cliente", for: "text" %> </td>
+            <td> <%= f.select :client_id, @lista_clientes %> </td>          
+          </tr>
+          
+          <tr>
+            <td><%= f.label "Venta", for: "text" %></td>
+            <% if current_page?(new_shipment_path) %>
+              <td><%= f.text_field :sale_id, value: session[:id_venta_session], readonly: 'readonly'  %>  </td>
+              <% else %>
+              <td><%= f.text_field :sale_id, readonly: 'readonly'  %>  </td>
+            <% end %>
+          
+          </tr>
+          
+        </table>
+      
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Envíar' , class: 'button' %>
+  </div>
+<% end %>

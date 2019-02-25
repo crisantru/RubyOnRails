@@ -1,0 +1,53 @@
+<%= form_for(@branch) do |f| %>
+  <% if @branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+
+      <ul>
+      <% @branch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="forms">
+      <table class="table"> 
+          <tr>
+            <td><%= f.label 'Nombre Sucursal', for: "text", id: "label" %></td>
+            <td><%= f.text_field :name, id: "name" %></td>      
+          </tr>
+        
+          <tr>
+            <td> <%= f.label 'Ciudad', for: 'text',id: "label" %> </td>
+            <td> <%= f.text_field :city %> </td>
+              
+            <!-- <td> <%= '''country_select("city", "country_name")''' %> </td> -->
+          </tr>  
+
+          <tr>
+            <td> <%= f.label 'Estado', for: 'text', id: "label" %> </td>
+            <td> <%= f.text_field :state %> </td>
+          </tr>            
+        
+          <tr>
+            <td><%= f.label 'Direccion', for: "text",id: "label" %></td>
+            <td><%= f.text_area :address, id: "name" %></td>      
+          
+          </tr>
+          
+           <tr>
+            <td><%= f.label 'Telefono', for: "text",id: "label" %></td>
+            <td><%= f.text_field :phone, id: "name" %></td>      
+          </tr>
+                
+      </table>
+    
+
+  </div>
+    <hr>
+
+  <div class="actions">
+    <%= f.submit 'Envíar', class: 'button' %>
+  </div>
+<% end %>

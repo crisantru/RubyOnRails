@@ -1,0 +1,41 @@
+#name, #branch_state, #branch_city, #name_id, #state_id, #branch_id{
+    font: 15px Ubuntu, sans-serif;
+    width: 200px;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+     
+}
+
+#name:hover, #branch_state:hover, #branch_city:hover,#name_id:hover, #state_id:hover, #branch_id:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+#provider_address{
+    resize: none;
+    width: 98%;
+}
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 48px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+
+
+
+

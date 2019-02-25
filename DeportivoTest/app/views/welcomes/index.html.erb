@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "style.css" %>
+
+
+<div class="logo_index">
+
+<%= image_tag("sport_performance.png", :alt => "logo") %>
+
+
+</div>
+
+<div id="login">
+    <h2><span class="fontawesome-lock"></span>Entrar</h2>
+    <%= form_tag welcomes_path,  action:  "javascript:void(0);" do |f| %>
+
+    <fieldset>
+        <p> <%= label_tag :Usuario %> </p>
+        <p> <%= text_field_tag :user_name, params[:user_name], id: "user", value: "usuario", onBlur: "if(this.value=='')this.value='usuario'", onFocus: "if(this.value=='usuario')this.value=''" %></p>
+
+        <p> <%= label_tag :Contraseña %> </p>
+        <p> <%= password_field_tag :password, params[:password], id: "password", value: "password", onBlur: "if(this.value=='')this.value='password'", onFocus: "if(this.value=='password')this.value=''" %> </p>
+
+        <p> <%= submit_tag "Entrar" %></p>
+    </fieldset>
+
+    <% end %>
+
+</div>
+
+<center>
+    <% flash.each do |key, value| %>
+        <div class="flash <%= key %>" id="error_explanation"><%= value %></div>
+    <% end %>
+</center>
+
+<div id= "copyrigth">
+<p>CopyRigth All Reserved</p><br>
+<p>Development And Design For: Sport Perfomance</p><br>
+
+    
+
+</div>
+

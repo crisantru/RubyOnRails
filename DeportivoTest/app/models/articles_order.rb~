@@ -1,0 +1,3 @@
+class ArticlesOrder < ActiveRecord::Base
+	belongs_to :orders
+end

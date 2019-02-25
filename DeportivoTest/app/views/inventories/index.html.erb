@@ -1,0 +1,103 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_inventories.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Inventarios</h1>
+            <h3>Búsquedas</h3>
+            <hr>
+            
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+        
+        <%= javascript_include_tag "buscar_inventarios" %>
+        
+        <table class="table">
+            
+            <tr>
+            <%= form_tag do %>
+                
+                <td> <%= label_tag "id_lbl", "Buscar por ID", id: "label" %> </td>
+                <td> <%= text_field_tag 'id_inventario', '' %></td>
+                <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_ID",class: 'button'} %></td>
+                
+            <% end %>
+            </tr>
+            
+              <tr>
+               <%= form_tag do %>
+                <td> <%= label_tag "branch_lbl", "Buscar por Sucursal", id: "label" %> </td>
+                <td><%= select_tag 'branch', options_for_select(@lista_sucursales) %></td>
+
+
+                 <td><%= submit_tag 'Buscar', {:type => 'button', :id => 'boton_buscar_sucursal',class: 'button'} %></td>
+                <% end %> 
+
+            </tr>
+        
+        </table>
+        
+        <hr>
+        
+        
+        <div id= "respuesta"></div>
+        
+        <% if not @inventarios.nil? and not @inventarios.blank? %>
+        <br>
+        <h2>Resultados de la búsqueda</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="5"></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>ID Inventarios</td>
+                <td>Numero de Articulos</td>
+                <td>ID Sucursal</td>
+                <td>ID Article</td>
+            
+            </tr>
+            
+            <% @inventarios.each do |inventario| %>
+            
+            <tr>
+                <td> <%= inventario.inventories_id %> </td>
+                <td> <%= inventario.number_articles %> </td>
+                
+                <% sucursal = Branch.find(inventario.branch_id) %>
+                <td> <%=  sucursal.name %></td>
+                
+                <% articulo = Article.find(inventario.article_id) %>
+                <td> <%= articulo.name %></td>
+                <td> <%= articulo.model %></td>
+                <td> <%= articulo.patent %></td>
+                
+                <td> <%= link_to 'Editar', edit_inventory_path(inventario) %> </td>
+                  <td> <%= link_to 'Eliminar', inventario, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+                
+            <% end %>
+            </tr>
+        </table>
+        <% end %>
+        
+                        
+        </article>
+    </div>
+</div>

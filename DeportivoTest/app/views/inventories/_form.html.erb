@@ -1,0 +1,41 @@
+<%= form_for(@inventory) do |f| %>
+  <% if @inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+      <% @inventory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="forms">
+    
+    <table class="table">
+        <tr>
+            <td><%= f.label :Articulo, for: "text", id: "label" %></td>
+            <td><%= f.select :article_id, @lista_articulos %></td>
+        </tr>
+
+        <tr>
+            <td><%= f.label :Sucursal, for: "text", id: "label" %></td>
+            <td><%= f.select :branch_id, @lista_almacenes %></td>
+
+        </tr>
+    
+        <tr>
+            <td> <%= f.label 'Cantidad', for: 'text', id: "label" %> </td>
+            <td> <%= f.number_field :number_articles %> </td>
+        </tr>      
+    
+    </table>
+
+</div>
+<hr>
+  <div class="actions">
+    <%= f.submit 'Envíar', class: 'button'%>
+  </div>
+<% end %>

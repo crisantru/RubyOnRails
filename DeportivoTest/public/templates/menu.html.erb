@@ -1,0 +1,11 @@
+<% if session[:tipo_usuario] == 1 %>
+  <%= render :file => "/public/templates/menu_administrador" %>
+<% elsif session[:tipo_usuario] == 2 %>
+  <%= render :file => "/public/templates/menu_gerente" %>
+<% elsif session[:tipo_usuario] == 3 %>
+	<%= render :file => "/public/templates/menu_vendedor" %>
+<% else %>
+  <ul>
+    <li> <%= link_to 'Iniciar Sesión', root_path %> </li>
+  </ul>
+<% end %>

@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Envio de Articulos</h1>
+
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @articles_orders.each do |articles_order| %>
+                  <tr>
+                    <td><%= link_to 'Show', articles_order %></td>
+                    <td><%= link_to 'Edit', edit_articles_order_path(articles_order) %></td>
+                    <td><%= link_to 'Destroy', articles_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <br>
+
+            <%= link_to 'Nuevo Envio', new_articles_order_path %>
+        </article>
+    </div>
+</div>

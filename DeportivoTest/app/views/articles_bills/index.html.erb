@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag "index.css" %>
+
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+
+            <h1>Listing articles_bills</h1>
+            
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @articles_bills.each do |articles_bill| %>
+                  <tr>
+                    <td><%= link_to 'Show', articles_bill %></td>
+                    <td><%= link_to 'Edit', edit_articles_bill_path(articles_bill) %></td>
+                    <td><%= link_to 'Destroy', articles_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <br>
+
+            <%= link_to 'New Articles bill', new_articles_bill_path %>
+        </article>
+    </div>
+</div>

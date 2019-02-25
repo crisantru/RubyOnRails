@@ -1,0 +1,124 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_sales.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+      <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        
+        <article>
+            <h1>Ventas</h1>
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+        
+          <% tipo_venta = {'Tienda' => 'Tienda', 'Telefónica' => 'Telefónica', 'Internet' => 'Internet' } %>
+        
+          <%= javascript_include_tag "buscar_ventas" %>
+        
+        <h3>Búsquedas</h3>  
+        <hr>
+        <table class="table">
+            
+        <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por ID ", id: "label" %> </td>
+               <td> <%= text_field_tag 'sale_id', '' %> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_id", class: 'button'} %> </td>
+            <% end %>
+            
+            </tr>
+            
+             <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "fecha_lbl", "Buscar por Fecha", id: "label" %> </td>
+               <td> <%= date_field_tag 'sale_date', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_date", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+            
+            <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por Cliente ", id: "label" %> </td>
+               <td> <%= text_field_tag 'sale_client', '' %> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_client", class: 'button'} %> </td>
+            <% end %>
+            
+            </tr>
+            
+            <tr>
+             <%= form_tag do %>
+             <td> <%= label_tag "id_lbl", "Buscar por tipo de Venta", id: "label" %> </td>
+             <td><%= select_tag 'sale_type', options_for_select(tipo_venta) %></td>
+            <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_type", class: 'button'} %> </td>
+            
+             <% end %>
+            </tr>
+            
+            
+            <tr>
+             <%= form_tag do %>
+             <td> <%= label_tag "id_lbl", "Buscar por empleado", id: "label" %> </td>
+             <td><%= select_tag 'staffs', options_for_select(@lista_empleados) %></td>
+            <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_staff", class: 'button'} %> </td>
+            
+             <% end %>
+            </tr>
+            
+        
+        </table>
+        <hr>
+        <div id= "respuesta"></div>
+        <% if not @ventas.nil? and not @ventas.blank? %>
+            <br>
+            <h2> Resultados de la búsqueda </h2>
+            <table class="datos">
+                    
+                  <tr id= "col">
+                    <td id="e"> Tipo de Venta </td>
+                    <td id="e"> Fecha </td>
+                    <td id="e"> Cliente </td>
+                    <td id="e"> Venta Ralizada por: </td>
+                    
+                  </tr>
+                
+                  <% @ventas.each do |venta| %>
+                <tr>
+
+                  <td> <%= venta.sales_type %> </td>
+                  <td> <%= venta.sales_date %> </td>
+
+                  
+                    
+                  <% cliente = Client.find(venta.client_id) %> 
+                  <td> <%= cliente.name %></td> 
+
+                  <% empleado = Staff.find(venta.staff_id) %>
+                  <td> <%= empleado.name %></td>
+                    
+  
+                    <td><%= link_to 'Ver mas', venta %></td>
+                  
+                    <% end %>
+                </tr>
+                
+              </table>
+            <% end %>
+                
+            
+        </article>
+    </div>
+</div>

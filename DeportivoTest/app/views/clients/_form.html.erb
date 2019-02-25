@@ -1,0 +1,79 @@
+<script type="text/javascript">
+function upperCase() {
+   var x=document.getElementById("rfc").value
+   document.getElementById("rfc").value=x.toUpperCase()
+}
+</script>
+
+<%= form_for(@client) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="forms">
+    <% tipo_cliente = { 'Físico' => 'Físico', 'Moral' => 'Moral' } %>
+    
+    <table class="table">
+        <tr>
+            <td> <%= f.label 'Nombre (cliente o empresa)', for: "text", id: "label" %></td>
+            <td> <%= f.text_field :name, id: "last_name" %></td>
+        
+        </tr>        
+        
+    <tr>
+    </tr>  
+        
+        <tr>
+            <td> <%= f.label "RFC", for: "text", id: "label" %></td>
+            <td> <%= f.text_field :rfc, id: "rfc", onblur: 'upperCase()' %></td>
+        </tr>        
+        <tr>
+            <td> <%= f.label :Direccion, for: "text", id: "label" %></td>
+            <td><%= f.text_area :address, id: "last_name" %></td>
+        
+        
+        </tr>
+        
+        <tr>
+            <td><%= f.label :Telefono, for: "text", id: "label" %></td>
+            <td><%= f.telephone_field :phone, id: "last_name" %></td>
+        
+        </tr>
+        
+        <tr>
+            <td><%= f.label :Correo, for: "text", id: "label" %></td>
+            <td><%= f.email_field :email, id: "last_name" %></td>
+        </tr>
+        
+        <tr>
+            <td> <%= f.label "Tipo de cliente", for: "text", id: "label" %></td>
+            <td>
+            <% tipo_cliente.each do |tipo| %>
+                <%= f.radio_button :client_type, tipo[1] %>
+                <label
+                       for="<% tipo[0] %>">
+                       <%= tipo[0] %>
+                </label>
+            <% end %>
+            </td>
+        
+        </tr>
+     
+     
+     
+    </table>
+    <hr>
+  </div>
+    
+  <div class="actions">
+    <%= f.submit 'Envíar', class: 'button' %>
+  </div>
+<% end %>

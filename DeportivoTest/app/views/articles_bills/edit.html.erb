@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            
+            <h1>Editing articles_bill</h1>
+
+            <%= render 'form' %>
+
+            <%= link_to 'Show', @articles_bill %> |
+            <%= link_to 'Back', articles_bills_path %>
+
+        </article>
+    </div>
+    
+</div>   
+
+

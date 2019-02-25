@@ -1,0 +1,47 @@
+#articles_bill_bills_id, #fecha, #bill_branch_id, #bill_client_id, #cliente, #articles_bill_sales_id{
+    font: 15px Ubuntu, sans-serif;
+    width: 99%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#articles_bill_bills_id:hover, #fecha:hover, #bill_bran ch_id:hover, #bill_client_id:hover, #cliente:hover, #articles_bill_sales_id:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+#bill_bill_date_1i, #bill_bill_date_2i, #bill_bill_date_3i{
+    font: 15px Ubuntu, sans-serif;
+    width: 31%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+}
+
+#bill_bill_date_1i:hover, #bill_bill_date_2i:hover, #bill_bill_date_3i:hover{
+    border-color:#d14343; 
+    border-style: solid;
+
+
+}
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+

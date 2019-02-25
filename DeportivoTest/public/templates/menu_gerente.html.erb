@@ -1,0 +1,102 @@
+  <ul>
+      <li class='active'><a id="user"><%= session[:user_name] %></a>
+        <ul>
+          <li class="active"><%= link_to 'Cambiar de Usuario', root_path %></li>
+          <li class='active'><%= link_to 'Cerrar Sesión', cerrar_sesion_path %></li>
+        </ul>
+        <li> <a>Cargo: Gerente</a></li>
+      <% sucursal = Branch.find(session[:sucursal_usuario]) %>
+      <li class="active"><a>Sucursal: <%= sucursal.name %> </a></li>          
+      </li>
+      <hr>
+      
+      <li class='active'> <%=link_to 'Principal', bienvenido_path %> </li>
+
+      <li class='has-sub'><a> Almacenes </a>
+        <ul>
+          <li class="active"><%= link_to 'Consultar', stocks_path %></li>
+        </ul>
+      </li>
+      
+      <li class='has-sub'> <a>Artículos</a>
+        <ul>
+          <li class="active"><%= link_to 'Consultar', articles_path %></li>
+          <li class="active"><%= link_to 'Nuevo', new_article_path %></li>
+        </ul>
+      </li>
+      
+      <li class='has-sub'><a>Clientes</a>
+        <ul>
+          <li><%= link_to 'Consultar', clients_path %></li>
+          <li><%= link_to 'Nuevo', new_client_path %></li>
+        </ul>
+      </li>
+      
+      <li class='has-sub'><a>Compras</a>
+        <ul>
+          <li><%= link_to 'Consultar', orders_path %></li>
+          <li><%= link_to 'Nueva', new_order_path %></li>
+          <% if session[:id_compra_session] %>
+          <li><%= link_to 'Agregar Productos', new_articles_order_path %>
+          <% end %>
+        </ul>
+      </li>
+      
+      <li class='has-sub'><a>Empleados</a>
+        <ul>
+          <li><%= link_to 'Consultar', staffs_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Envíos</a>
+        <ul>
+          <li> <%= link_to 'Consultar', shipments_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Facturas</a>
+        <ul>
+          <li><%= link_to 'Consultar', bills_path %></li>
+          <li><%= link_to 'Generar Factura', new_bill_path %></li>
+          <% if session[:id_factura] %>
+          <li><%= link_to 'Agregar a Factura', new_articles_bill_path %></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Inventarios</a>
+        <ul>
+          <li><%= link_to 'Consultar', inventories_path %></li>
+          <li><%= link_to 'Nuevo', new_inventory_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Proveedores</a>
+        <ul>
+          <li><%= link_to 'Consultar', providers_path %></li>
+          <li><%= link_to 'Nuevo', new_provider_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Sucursales</a>
+        <ul>
+          <li><%= link_to 'Consultar', branches_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Usuarios</a>
+        <ul>
+          <li><%= link_to 'Consultar', users_path %></li>
+        </ul>
+      </li>
+
+      <li class='has-sub'><a>Ventas</a>
+        <ul>
+          <li><%= link_to 'Consultar', sales_path %></li>
+          <li><%= link_to 'Generar Venta', new_sale_path %></li>
+          <% if session[:id_venta_session] %>
+            <li><%= link_to 'Agregar productos' %></li>
+          <% end %>
+        </ul>
+      </li>
+  </ul>

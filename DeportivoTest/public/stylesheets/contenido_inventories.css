@@ -1,0 +1,37 @@
+#inventory_article_id, #inventory_branch_id, #inventory_number_articles{
+    font: 15px Ubuntu, sans-serif;
+    width: 99%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#inventory_article_id:hover, #inventory_branch_id:hover, #inventory_number_articles:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+
+
+
+

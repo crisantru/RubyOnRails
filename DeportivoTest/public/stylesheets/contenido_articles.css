@@ -1,0 +1,43 @@
+#modelo, #marca, #categoria,#article_category,
+#name, #article_patent, #article_model, #article_gender, #article_size, #instrucciones, #descripcion{
+    font: 15px Ubuntu, sans-serif;
+    width: 98%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#modelo:hover, #marca:hover, #categoria:hover, #article_category:hover,
+#name:hover,
+#article_patent:hover,
+#article_model:hover,
+#article_gender:hover,
+#article_size:hover,
+#instrucciones:hover,
+#descripcion:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+

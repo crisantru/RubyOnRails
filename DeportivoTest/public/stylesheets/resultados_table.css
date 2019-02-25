@@ -1,0 +1,22 @@
+.datos{
+    text-align: center;
+    border: 1px solid black;
+    font: 40px Ubuntu;
+    width: 100%;
+    
+}
+
+#col{
+    background: #dd2d2d;
+    
+    
+}
+
+#e{
+    
+    font: 15px Ubuntu;
+    color: white;
+    padding: 5px;
+    
+}
+

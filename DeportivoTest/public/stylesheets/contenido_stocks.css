@@ -1,0 +1,116 @@
+#stock_stock_type{
+    font: 15px Ubuntu, sans-serif;
+    width: 100%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#stock_stock_type:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+
+#direccion{
+    resize: none;
+    width: 95%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    font: 17px Ubuntu, sans-serif;
+
+}
+
+#direccion:hover{
+    border-color:#d14343; 
+    
+
+
+}
+
+
+#phone,id_stock{
+    font: 15px Ubuntu, sans-serif;
+    width: 98%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+    
+}
+
+#phone:hover{
+    border-color:#d14343; 
+    border-style: solid;
+}
+
+#stock_branch_id{
+    font: 15px Ubuntu;
+    width: 100%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+}
+
+#stock_branch_id:hover{
+       border-color:#d14343; 
+       border-style: solid;;
+
+}
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+#id_stock{
+    font: 15px Ubuntu, sans-serif;
+    width: 98%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+}
+
+#id_stock:hover{
+       border-color:#d14343; 
+       border-style: solid;;
+
+}
+
+#stock_address{
+    font: 15px Ubuntu, sans-serif;
+    width: 98%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+}
+
+#stock_address:hover{
+       border-color:#d14343; 
+       border-style: solid;;
+
+}
+
+#branch{
+    font: 15px Ubuntu, sans-serif;
+    width: 98%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+
+}
+
+#branch:hover{
+       border-color:#d14343; 
+       border-style: solid;;
+
+}

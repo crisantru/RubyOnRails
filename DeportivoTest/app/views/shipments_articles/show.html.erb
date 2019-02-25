@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("logo.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+
+            <p id="notice"><%= notice %></p>
+
+            <%= link_to 'Edit', edit_shipments_article_path(@shipments_article) %> |
+            <%= link_to 'Back', shipments_articles_path %>
+        </article>
+    </div>
+</div>

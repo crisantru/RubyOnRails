@@ -1,0 +1,44 @@
+<%= form_for(@sales_article) do |f| %>
+  <% if @sales_article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sales_article.errors.count, "error") %> prohibited this sales_article from being saved:</h2>
+
+      <ul>
+      <% @sales_article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="forms">
+    <table>
+        <tr>
+            <td><%= f.label 'Número de Productos', for: "text" %></td>
+            <td><%= f.number_field :total_article, id: "total_article" %></td>
+        </tr>
+        
+        <tr>
+            <td><%= f.label :Venta, for: "text" %></td>
+            <td><%= f.number_field :sales_id, value: session[:id_venta_session], readonly: 'readonly' %></td>
+        </tr>
+        
+        <tr>
+            <td><%= f.label :Articulo, for: "text" %></td>
+            <td><%= f.select :article_id, @lista_articulos %></td>
+        </tr>
+        
+    <% tipo_venta = session[:tipo_venta_session] %>
+
+    </table>
+  </div>
+
+<div class="actions">
+    <%= f.submit 'Agregar más', class: 'button' %>
+    <% if tipo_venta.eql?("Telefónica") or tipo_venta.eql?("Internet") %>
+        <%= link_to 'Generar Envío', new_shipment_path , class: 'button'  %>
+    <% else %>
+        <%= link_to 'Terminar', sales_path , class: 'button'  %>
+    <% end %>
+  </div>
+<% end %>

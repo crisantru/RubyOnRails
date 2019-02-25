@@ -1,0 +1,39 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="forms">
+      <table class="table">
+          
+          <tr>
+            <td> <%= f.label :Fecha, for: "text", id: "label" %> </td>
+            <td class='date_select'> <%= f.date_select :bill_date, start_year: 2010, end_year: 2050, :use_month_numbers => true, :bill => [:day, :month, :year] %> </td>
+          </tr>
+          
+          <tr>
+          <td> <%= f.label :Sucursal, for: "text", id: "label" %> </td>
+          <td> <%= f.select :branch_id, @lista_sucursales %> </td>
+          
+          </tr>
+          
+          <tr>
+            <td> <%= f.label :Cliente, for: "text", id: "label" %> </td>
+            <td> <%= f.select :client_id, @lista_clientes %> </td>
+          </tr>
+          
+      </table>
+  </div>
+ 
+  <div class="actions"> 
+    <%= f.submit 'Facturar', class: 'button', data: { confirm: 'Una vez generada la factura no se podrá deshacer' } %>
+  </div>
+<% end %>

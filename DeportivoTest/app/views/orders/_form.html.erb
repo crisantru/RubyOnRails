@@ -1,0 +1,50 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="forms">
+    <hr>
+    <table class="table">
+    
+    <tr>
+        <td> <%= f.label 'Generada por', for: 'text', id: "label" %> </td>
+        <td id="label"> <%= session[:user_name] %>
+        <%= f.hidden_field :staff_id, value: session[:empleado_id], readonly: 'readonly' %>
+    </tr>  
+        
+    <tr>
+        <td> <%= f.label :Fecha, for: "text",  id: "label" %> </td>
+        <td class='date_select'> <%= f.date_select :order_date, start_year: 2010, end_year: 2050, :use_month_numbers => true, :order => [:day, :month, :year] %> </td>
+    </tr>
+        
+    <tr>
+        <td><%= f.label "Almacen", for: "text", id: "label" %></td>
+        <td><%= f.select :stock_id, @lista_almacenes  %></td>
+    </tr>
+
+    <tr>
+        <form id="formulario" name="formulario">
+        
+        <td> <%= f.label 'Proveedor', for: "text", id: "label" %> </td>
+        <td> <%= f.select :provider_id, @lista_proveedores %> </td>        
+            
+        </form>
+    </tr>
+        
+    </table>
+    <hr>
+</div>
+
+  <div class="actions">
+      <%= f.submit 'Crear Orden de compra', id: 'boton', class: 'button' %>
+  </div>
+<% end %>

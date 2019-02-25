@@ -1,0 +1,95 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_providers.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+
+            <h1>Búsqueda de Proveedores</h1>
+            <h3>Búsquedas</h3>
+            <hr>
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+                
+              <hr>
+              <% end %>
+            </p>
+        
+        <%= javascript_include_tag "buscar_proveedores" %>
+        
+        <table class="table">
+        
+            <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por Nombre", id: "label" %> </td>
+               <td> <%= text_field_tag 'name', '' %> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_nombre",class: 'button'} %> </td>
+            <% end %>
+            
+            </tr>
+            
+            <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por Estado",  id: "label" %> </td>
+               <td> <%= text_field_tag 'state', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_state",class: 'button'} %> </td>
+            <% end %>
+        
+            </tr>
+        </table>
+        <hr>
+        <div id= "respuesta"></div>
+        
+        <% if not @proveedores.nil? and not @proveedores.blank? %>
+            <br>
+            <h2>Resultados de la búsqueda</h2>
+            <table  class="datos">
+                
+                <tr id= "col">
+                    
+                    <td id="e"> Name </td>
+                    <td id= "e"> Dirección </td>
+                    <td id= "e"> Ciudad </td>
+                    <td id= "e"> Estado </td>
+                    <td id= "e"> Telefono </td>
+                    <td id= "e"> Mail </td>
+            
+                </tr>
+                
+                 <% @proveedores.each do |proveedor| %>
+                <tr>
+                  <td> <%= proveedor.name %> </td>
+                  <td> <%= proveedor.address %> </td>
+                  <td> <%= proveedor.city %> </td>
+                  <td> <%= proveedor.state %> </td>
+                  <td> <%= proveedor.phone %> </td>
+                  <td> <%= proveedor.mail %> </td>
+
+                  <td> <%= link_to 'Editar', edit_provider_path(proveedor) %> </td>
+                  <td> <%= link_to 'Eliminar', proveedor, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+                <% end %>
+                </tr>
+              </table>
+              <% end %> 
+                
+                
+                
+        
+        
+
+
+        </article>
+    </div>
+</div>

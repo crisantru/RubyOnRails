@@ -1,0 +1,17 @@
+<%= form_for(@inventories_stock) do |f| %>
+  <% if @inventories_stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventories_stock.errors.count, "error") %> prohibited this inventories_stock from being saved:</h2>
+
+      <ul>
+      <% @inventories_stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

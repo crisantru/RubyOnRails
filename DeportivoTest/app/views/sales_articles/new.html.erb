@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("logo.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Agregar artículos a la venta #<%= session[:id_venta_session] %> </h1>
+
+            <br>
+            <hr>
+            <%= render 'form' %>
+            <hr>
+            <br>
+
+            <%= link_to 'Regresar', sales_articles_path, class: 'button' %>
+
+            <br><br>
+            <hr>
+            <% if not @ventas.nil? and not @ventas.blank? %>
+                <table>
+                    <tr>
+                        <td>Cantidad</td>
+                        <td>Producto</td>
+                        <td>Modelo</td>
+                        <td>Talla</td>
+                        <td>Precio</td>
+                        <td>Subtotal</td>
+                    </tr>
+                    
+                    <% @ventas.each do |venta| %>
+                        <tr>
+                            <td><%= venta.total_article.to_i  %>
+                            <td><%= venta.name  %></td>
+                            <td><%= venta.model  %></td>
+                            <td><%= venta.size  %></td>
+                            <td><%= venta.price  %></td>
+                            <td><%= venta.subtotal %></td>
+                            <td><%= link_to 'Eliminar', venta, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% end %>
+
+        </article>
+    </div>
+</div>

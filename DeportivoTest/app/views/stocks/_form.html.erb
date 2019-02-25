@@ -1,0 +1,49 @@
+
+<%= form_for(@stock) do |f| %>
+  <% if @stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% @stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hr>
+  <div class="forms">
+      <table class="table" >
+      
+        <tr>
+            <td><%= f.label "Tipo de almacen", for: "text", id: "label" %></td>
+            <td><%= f.select :stock_type, {:Matriz => "Matriz", :Regional => "Regional"} %> </td>        
+            
+            
+        </tr>
+    
+          
+        <tr>
+            <td><%= f.label :Dirección, for: "text",id: "label" %></td>
+            <td><%= f.text_area :address, id: "direccion" %></td>
+        </tr>
+                
+        <tr>
+          <td><%= f.label :Telefono, for: "text", id: "label" %></td>
+          <td><%= f.phone_field :phone, id: "phone" %></td>    
+        </tr>
+        
+        <tr>
+            <td> <%= f.label :Sucursal, for: "text",id: "label" %> </td>
+            <td> <%= f.select :branch_id, @lista_sucursales %> </td>
+        </tr>
+                    
+      </table>
+  </div>
+    <hr>
+
+  <div class="actions">
+    <%= f.submit 'Envíar', class: 'button'%>
+      
+  </div>
+<% end %>

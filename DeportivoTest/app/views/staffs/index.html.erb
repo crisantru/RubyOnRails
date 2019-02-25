@@ -1,0 +1,106 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_staffs.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Empleados</h1>
+
+            <p id="notice">
+              <% if notice %>
+              <%= notice %><br><br>
+              <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+              <hr>
+              <% end %>
+            </p>
+
+            <hr>
+            <br>
+            <%= javascript_include_tag "buscar_empleados" %>
+        
+            <table class="table">
+            <%= form_tag do %>
+               <td> <%= label_tag "nombre_lbl", "Buscar por Nombre", id: "label" %> </td>
+               <td> <%= text_field_tag 'nombre', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_nombre", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "rfc_lbl", "Buscar por Apellido", id: "label" %> </td>
+               <td> <%= text_field_tag 'apellido', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_apellido", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+               <td> <%= label_tag "telefono_lbl", "Buscar por Teléfono", id: "label" %> </td>
+               <td> <%= text_field_tag 'telefono', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_telefono", class: 'button' } %> </td>
+            <% end %>
+            </tr>
+
+            <tr>
+            <%= form_tag do %>
+              <td> <%= label_tag 'branch_label', 'Buscar por sucursal',id: "label" %> </td>
+              <td> <%= select_tag 'sucursal', options_for_select(@lista_sucursales) %> </td>
+              <td> <%= submit_tag 'Buscar', {:type => 'button', :id => 'boton_buscar_sucursal', class: 'button' } %> </td>
+            <% end %>
+            </tr>
+
+            </table>
+            <hr>
+            
+            <div id="respuesta"></div>
+          
+            <% if not @empleados.nil? and not @empleados.blank? %>
+            <br>
+            <h2> Resultados de la búsqueda </h2>
+            <table class= "datos">
+              <thead>
+                <tr>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>            
+              <tr id= "col">
+                <td id= "e"> Nombres </td>
+                <td id= "e"> Apellidos </td>
+                <td id= "e"> Dirección </td>
+                <td id= "e"> Teléfono </td>
+                <td id= "e"> Email </td>
+                <td id= "e"> Tipo de Empleado</td>
+                <td id= "e"> Sucursal </td>
+            </tr>
+
+          <% @empleados.each do |empleado| %>
+            <tr>
+              <td> <%= empleado.name %> </td>
+              <td> <%= empleado.last_name %> </td>
+              <td> <%= empleado.address %> </td>
+              <td> <%= empleado.phone %> </td>
+              <td> <%= empleado.email %> </td>
+              <% tipo = StaffType.find(empleado.type_id) %>
+              <td> <%= tipo.position %> </td>
+              <% sucursal = Branch.find(empleado.branch_id) %>
+              <td> <%= sucursal.name %> </td>
+              <td> <%= link_to 'Editar', edit_staff_path(empleado) %> </td>
+              <td> <%= link_to 'Eliminar', empleado, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+            <% end %>
+          </table>
+          <% end %> 
+
+        </article>
+    </div>
+</div>

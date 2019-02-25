@@ -1,0 +1,90 @@
+<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "contenido_users.css" %>
+<%= stylesheet_link_tag "resultados_table.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("sport_performance.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <h1>Usuarios</h1>
+
+              <p id="notice">
+                <% if notice %>
+                <%= notice %><br><br>
+                <%= link_to 'Cambiar usuario', root_path, class: 'button'%>
+                <hr>
+                <% end %>
+              </p>
+        
+            <%= javascript_include_tag "buscar_por_usuarios" %>
+            <h3>Búsquedas</h3>
+            <hr>
+        
+            <table class="table"> 
+            <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por ID", id: "label" %> </td>
+               <td> <%= text_field_tag 'user_id', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_user", class: 'button' } %> </td>
+            <% end %>
+                                                                    
+            </tr>
+                
+  <tr>
+             <%= form_tag do %>
+               <td> <%= label_tag "id_lbl", "Buscar por Nombre", id: "label" %> </td>
+               <td> <%= text_field_tag 'name_id', ''%> </td>
+               <td> <%= submit_tag "Buscar", {:type => "button", :id => "boton_buscar_name", class: 'button' } %> </td>
+            <% end %>
+                                                                    
+            </tr>
+            </table>
+            <hr>
+            <div id= "respuesta"></div>
+            
+             <% if not @usuarios.nil? and not @usuarios.blank? %>
+            <br>
+            <h2>Resultados de la búsqueda</h2>
+            <table class="datos">
+                
+                <tr id= "col">
+                    
+                    <td id= "e"> Usuario </td>
+                    <td id= "e"> Nombre del Empleado </td>
+                    <td id= "e"> Email </td>
+                    <td id= "e"> Telefono </td>
+                    
+                </tr>
+                
+               <% @usuarios.each do |usuario| %>
+                <tr>
+                    
+                  <td> <%= usuario.user_name %> </td>
+                    
+                  <% id_empleado = Staff.find(usuario.staff_id) %>
+                  <td> <%= id_empleado.name %></td> 
+                  <td> <%= id_empleado.email %></td> 
+                  <td> <%= id_empleado.phone %></td> 
+                  
+                    
+                  
+                  <td> <%= link_to 'Editar', edit_user_path(usuario) %> </td>
+                  <td> <%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: '¿Eliminar?' } %> </td>
+                <% end %>
+                </tr>
+              </table>
+              <% end %> 
+        
+
+        </article>
+    </div>
+    
+</div>

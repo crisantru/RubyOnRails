@@ -1,0 +1,68 @@
+<%= stylesheet_link_tag "index.css" %>
+    
+<div class="pagina">
+    
+    <div class="banner">
+        <%= image_tag("logo.png", :alt => "logo") %>
+    </div>
+    
+    <div class="menu">
+        <%= render :file => "/public/templates/menu" %>
+    </div>
+    
+    <div class="contenido">
+        <article>
+            <p id="notice"><%= notice %></p>
+            
+            <h2>Ver Detalles</h2>
+            <hr>
+            
+            <% if not @ventas.nil? and not @ventas.blank? %>
+            
+            <table>
+             <thead>
+                <tr>
+                    <th colspan="5"></th>
+                </tr>
+            </thead>
+            <tr>
+                
+               
+                <td> Cantidad </td>
+                <td> Articulo </td>
+                <td> Marca </td>
+                <td> Talla </td>
+                <td> Precio </td>
+                <td> Subtotal </td>
+                
+            </tr>
+            
+            <% @ventas.each do |venta| %>
+                <tr>
+                   
+                <% id_articulo = Article.find(venta.article_id) %>
+                
+                    
+                <td> <%= venta.total_article.to_i %></td>
+                <td> <%= id_articulo.name %></td>
+                <td> <%= id_articulo.patent %></td>
+                <td> <%= id_articulo.size %></td>
+                <td> $<%= id_articulo.price %></td>
+                <td> $<%= venta.subtotal %></td>
+                  
+                    
+               
+                <% end %>
+                </tr>
+            
+            </table>
+            <% else %>
+            <p>No hay detalles que mostrar</p>
+            
+            <% end %>
+
+            <br><br>
+            <%= link_to 'Regresar', sales_path, class: 'button' %>
+        </article>
+    </div>
+</div>

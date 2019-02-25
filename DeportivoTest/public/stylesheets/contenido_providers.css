@@ -1,0 +1,41 @@
+#provider_name, #provider_city, #provider_state, #provider_address, #provider_phone, #provider_mail, #name, #state{
+    font: 15px Ubuntu, sans-serif;
+    width: 100%;
+    background: rgba(178, 178, 178, 0.89);
+    border-width: medium;
+     
+}
+
+#inventory_article_id:hover, #inventory_branch_id:hover, #inventory_number_articles:hover, #name:hover, #state:hover{
+    border-color:#d14343; 
+    border-style: solid;
+    
+}
+
+
+#provider_address{
+    resize: none;
+    width: 98%;
+}
+
+#label{
+    font: 16px KacstFarsi;
+
+}
+
+
+.table{
+    border-spacing: 18px 28px; border-collapse: separate;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+
+
+
+
+
+

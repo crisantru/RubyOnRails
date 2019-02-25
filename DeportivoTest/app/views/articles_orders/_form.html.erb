@@ -1,0 +1,67 @@
+<script LANGUAGE="javaScript">
+$("select").change(function () {
+    var text = $('#articles_order_article_id option:selected').text()
+    var value = $('#articles_order_article_id option:selected').val()
+    alert('Valor' + text);
+    $("#articles_order_article_id").val(value)
+    $('#articles_order_article_id').html(text+" =>"+value)
+});
+</script>
+
+<%= form_for(@articles_order) do |f| %>
+  <% if @articles_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@articles_order.errors.count, "error") %> prohibited this articles_order from being saved:</h2>
+
+      <ul>
+      <% @articles_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+
+ <div class="forms">
+     <table>
+         <tr>
+            <td><%= f.label 'Producto', for: "text" %> </td>
+            <td><%= f.select :article_id, @lista_articulos  %> </td>
+         </tr>
+ 
+         <tr>
+            <td><%= f.label 'Cantidad', for: "text" %></td>
+            <td><%= f.number_field :total_article, id: "instrucciones" %></td>
+        </tr>
+         
+         <tr>
+            <td><%= f.label 'Precio', for: "text" %></td>
+            <td><%= f.number_field :price %></td>
+        </tr>
+         
+        <tr>
+            <td> <%= f.label 'No de Orden', for: 'text' %> </td>
+            <% if current_page?(new_articles_order_path) %>
+              <td> <%= f.text_field :orders_id,  value: @id_compra, readonly: 'readonly' %> </td>
+            <% else %>
+              <td> <%= f.text_field :orders_id, readonly: 'readonly' %> </td>
+            <% end %>
+        </tr>
+     </table>
+
+
+</div>
+
+  </div>
+
+  <div class="actions">
+    <% if current_page?(new_articles_order_path) %>
+    <%= f.submit 'Agregar más', class: 'button' %>
+    <% else %>
+    <%= f.submit 'Actualizar', class: 'button' %>
+    <% end %>
+    <%= link_to 'Terminar', orders_path, class: 'button', :action => 'destroy_order' %>
+  </div>
+
+<% end %>
