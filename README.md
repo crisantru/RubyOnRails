@@ -1,6 +1,6 @@
 # Ruby On Rails
 > Descripción: Proyectos implementados en Ruby on Rails.
-  - Deportivotest
+  - DeportivoTest
   - EgresUV
   - PokeDex
   - Etidoma 
