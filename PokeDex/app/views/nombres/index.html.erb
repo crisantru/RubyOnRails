@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nombres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Apodo</th>
+      <th>Peso</th>
+      <th>Altura</th>
+      <th>Vida</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nombres.each do |nombre| %>
+      <tr>
+        <td><%= nombre.apodo %></td>
+        <td><%= nombre.peso %></td>
+        <td><%= nombre.altura %></td>
+        <td><%= nombre.vida %></td>
+        <td><%= link_to 'Show', nombre %></td>
+        <td><%= link_to 'Edit', edit_nombre_path(nombre) %></td>
+        <td><%= link_to 'Destroy', nombre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nombre', new_nombre_path %>

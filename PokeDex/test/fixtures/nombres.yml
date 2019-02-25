@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apodo: MyString
+  peso: 1.5
+  altura: 1.5
+  vida: 1
+
+two:
+  apodo: MyString
+  peso: 1.5
+  altura: 1.5
+  vida: 1

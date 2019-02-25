@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Apodo:</strong>
+  <%= @nombre.apodo %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @nombre.peso %>
+</p>
+
+<p>
+  <strong>Altura:</strong>
+  <%= @nombre.altura %>
+</p>
+
+<p>
+  <strong>Vida:</strong>
+  <%= @nombre.vida %>
+</p>
+
+<%= link_to 'Edit', edit_nombre_path(@nombre) %> |
+<%= link_to 'Back', nombres_path %>

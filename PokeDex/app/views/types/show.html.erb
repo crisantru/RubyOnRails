@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @type.clase %>
+</p>
+
+<%= link_to 'Editar', edit_type_path(@type) %> |
+<%= link_to 'Regresar', types_path %>

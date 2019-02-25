@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag 'pokemons', media: 'all', 'data-turbolinks-track' => true %>
+
+<%= form_for(@pokemon) do |f| %>
+  <% if @pokemon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pokemon.errors.count, "errores") %> impiden que se guarde correctamente el pokemon:</h2>
+
+      <ul>
+      <% @pokemon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apodo %><br>
+    <%= f.text_field :apodo %>
+  </div>
+  <div class="field">
+    <%= f.label :peso %><br>
+    <%= f.number_field :peso, class: :text_field, step: 0.1 %>
+  </div>
+  <div class="field">
+    <%= f.label :altura %><br>
+    <%= f.number_field :altura, class: :text_field, step: 0.1 %>
+  </div>
+  <div class="field">
+    <%= f.label :vida %><br>
+    <%= f.text_field :vida %>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :tipos %><br>
+    <%= f.collection_check_boxes(:type_ids, Type.all, :id, :clase) %>
+  </div>
+
+  <div class="field">
+  <%= f.label :imagen %><br>
+  <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar Pokemon", class: "btn"%>
+  </div>
+<% end %>

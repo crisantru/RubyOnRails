@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag 'pokemons', media: 'all', 'data-turbolinks-track' => true %>
+<h1 style="font-size:400%; color:red">PokeDex</h1><br>
+<%= image_tag("pokebola.png", :title => "", :class => "image") %>
+
+<div style="">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+  <%= image_tag @pokemon.image.url(:medium) %>
+  </p>
+
+  <p>
+    <strong>Nombre:</strong>
+    <%= @pokemon.nombre %>
+  </p>
+
+  <p>
+    <strong>Apodo:</strong>
+    <%= @pokemon.apodo %>
+  </p>
+
+  <p>
+    <strong>Peso:</strong>
+    <%= @pokemon.peso %>
+  </p>
+
+  <p>
+    <strong>Altura:</strong>
+    <%= @pokemon.altura %>
+  </p>
+
+  <p>
+    <strong>Vida:</strong>
+    <%= @pokemon.vida %>
+  </p>
+</div><br>
+
+<%= link_to 'Editar', edit_pokemon_path(@pokemon), class: "btn" %>
+<%= link_to 'regresar', pokemons_path, class: "btn" %>
