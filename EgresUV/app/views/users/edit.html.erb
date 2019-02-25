@@ -1,0 +1,120 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    
+    width: 50%;
+}
+
+td, th {
+    
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.h21{
+  text-align: center;
+}
+
+</style>
+
+<br><%= link_to '<i class="material-icons md-dark md-48">arrow_back</i>'.html_safe, :back, style: 'margin-left:3%' %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name, "Nombre" %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :direccion, "Dirección" %>
+      <%= f.text_field :direccion, class: 'form-control' %>
+
+      <%= f.label :telefono, "Telefono" %>
+      <%= f.text_field :telefono, class: 'form-control' %>
+
+      <%= f.label :email, "Correo" %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :genero %><br>
+      <%= f.select :genero, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']]) %>
+      
+      <%= f.label :fechaNac, "Fecha de Nacimiento" %><br>
+      <%= f.date_select :fechaNac, {order: [:month, :day, :year], prompt: { day: 'Selecciona Dia', month: 'Selecciona Mes', year: 'Selecciona Año' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+
+      <!--<h2 class="h21">TIPO DE USUARIO</h2>
+      <table>
+        <tr>
+          
+          <th><%= f.check_box :rol, {}, "Egresado", "false" %></th>
+          <th><%= f.label :egresado, "Egresado" %></th>
+          <th><%= f.check_box :rol, {id:"enableAcademico"}, "Academico", "false" %></th>
+          <th><%= f.label :academico, "Academico" %></th>
+      </table>-->
+    
+      <% if @user.rol.eql? "Academico" %>
+        <h2>DATOS ACADEMICO</h2>
+
+        <%= f.label :nivelEstudio, "Nivel de Estudios" %>
+        <%= f.text_field :nivelEstudio, class: 'form-control' %>
+
+        <%= f.label :numPersonal, "Numero de Personal" %>
+        <%= f.text_field :numPersonal, class: 'form-control' %>
+
+        <%= f.label :puesto, "Puesto" %>
+        <%= f.text_field :puesto, class: 'form-control' %>
+
+        <%= f.label :correoInstitucional, "Correo Institucional" %>
+        <%= f.email_field :correoInstitucional, class: 'form-control'%>
+
+      <% end %>
+
+      
+      <% if @user.rol.eql? "false" %>
+        <h2>DATOS EGRESADO</h2>
+        <%= f.label :matricula, "Matricula" %>
+        <%= f.text_field :matricula, class: 'form-control', id:'type_field' %>
+
+        <%= f.label :promedio, "Promedio" %>
+        <%= f.text_field :promedio, class: 'form-control', id:'type_field2''' %>
+
+        <%= f.label :carrera, "Carrera" %>
+        <%= f.text_field :carrera, class: 'form-control', id:'type_field3' %>
+
+        <%= f.label :fechaEgreso, "Fecha de Egreso" %>
+        <%= f.text_field :fechaEgreso, class: 'form-control', id:'type_field4' %>
+
+        <%= f.label :empleo, "Labora Actualmente" %>
+        <%= f.select :empleo, options_for_select([['Si', 'Si'], ['No', 'No']])%>
+
+
+        <%= f.label :lugarEmpleo, "Nombre donde Trabaja" %>
+        <%= f.text_field :lugarEmpleo, class: 'form-control', id:'type_field6' %>
+
+        <%= f.label :areaTrabajo, "Area de Trabajo" %>
+        <%= f.select :areaTrabajo, options_for_select([['Desarrollador WEB', 'Desarrollador web'], ['Programador', 'Programador'], ['Analista', 'Analista'], ['Base Datos'], ['Redes', 'Redes']]) %>
+
+
+        <%= f.label :idioma, "Idiomas que domina" %>
+        <%= f.text_area :idioma, class: 'form-control', id:'type_field8', resize: 'false' %>
+
+      <% end %>
+      
+      <h2>Confirmacion de la Cuenta</h2>
+
+      <%= f.label :password, "Contraseña" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmar Contraseña" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %><br>
+
+      
+      <br><%= f.submit "Guardar Datos", class: "btn btn-primary"%>
+      
+    <% end %>
+  </div>
+</div>

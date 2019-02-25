@@ -1,0 +1,123 @@
+<br><%= link_to '<i class="material-icons md-dark md-48">arrow_back</i>'.html_safe, :back, style: 'margin-left:3%' %>
+<%= link_to '<i class="material-icons md-dark md-48">home</i>'.html_safe, :root %>
+<div >
+  <h1>Información Detallada del Usuario</h1><br>
+
+    <% if @user.rol.eql? "Academico" %>
+     <p>
+       <strong>Tipo de Usuario:</strong>
+       <%= @user.rol %>
+     </p>
+     <% else %>
+      <p>
+       <strong>Tipo de Usuario:</strong> Egresado
+       
+     </p>
+
+    <% end %>
+
+    <p>
+      <strong>Nombre:</strong>
+      <%= @user.name %>
+    </p>
+
+
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong>Telefono:</strong>
+      <%= @user.telefono %>
+    </p>
+
+    
+    <p>
+      <strong>Direccion:</strong>
+      <%= @user.direccion %>
+    </p>
+
+    <p>
+      <strong>Genero:</strong>
+      <%= @user.genero %>
+    </p>
+
+    
+    <% if @user.rol.eql? "Academico" %>
+
+      <p>
+      <strong>Nivel de Estudios:</strong>
+      <%= @user.nivelEstudio %>
+      </p> 
+
+      <p>
+      <strong>Numero de Personal:</strong>
+      <%= @user.numPersonal %>
+      </p> 
+
+      <p>
+      <strong>Puesto:</strong>
+      <%= @user.puesto %>
+      </p> 
+
+      <p>
+      <strong>Correo Institucional:</strong>
+      <%= @user.correoInstitucional %>
+      </p> 
+
+    <% end %>
+
+    <% if @user.rol.eql? "false" %>
+
+      <p>
+        <strong>Carrera:</strong>
+        <%= @user.carrera %>
+      </p>
+      
+      <p>
+        <strong>Matricula:</strong>
+        <%= @user.matricula %>
+      </p>
+
+      <p>
+        <strong>Promedio:</strong>
+        <%= @user.promedio %>
+      </p>
+
+      <p>
+        <strong>Fecha Egreso:</strong>
+        <%= @user.fechaEgreso %>
+      </p>
+
+      <p>
+        <strong>Empleo:</strong>
+        <%= @user.empleo %>
+      </p>
+
+      <p>
+        <strong>Nombre donde Labora:</strong>
+        <%= @user.lugarEmpleo %>
+      </p>
+
+      <p>
+        <strong>Area en que se Desarrolla:</strong>
+        <%= @user.areaTrabajo %>
+      </p>
+
+      <p>
+        <strong>Idiomas que domina:</strong>
+        <%= @user.idioma %>
+      </p>
+
+
+
+
+    <% end %>
+
+      <p>
+        <strong>Fecha de Nacimiento:</strong>
+        <%= @user.fechaNac %>
+      </p> 
+  
+</div>

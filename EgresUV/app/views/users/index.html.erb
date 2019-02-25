@@ -1,0 +1,46 @@
+<style>
+table, th, td {
+
+    border: 1px solid black;
+    padding: 15px;
+}
+
+</style>
+<br><%= link_to '<i class="material-icons md-dark md-48">arrow_back</i>'.html_safe, :back, style: 'margin-left:3%' %>
+
+<h1>Usuarios</h1>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Tipo de Usuario</th>
+    <th>Email</th>
+    <th>Telefono</th>
+    <th>Direccion</th>
+    <th>Genero</th>
+
+  </tr>
+
+  
+  <% @users.each do |user| %>
+    <tr>
+      
+      <td><%= user.name %></td>
+       <% if user.rol.eql? "Academico" %>
+          <td><%= user.rol %></td>
+          <% else %>
+            <td>Egresado</td>
+      <% end %>
+      <td><%= user.email %></td>
+      <td><%= user.telefono %></td>
+      <td><%= user.direccion %></td>
+      <td><%= user.genero %></td>
+      <td><%= link_to 'Mostrar', user_path(user) %></td>
+      <td><%= link_to 'Editar', edit_user_path(user) %></td>
+      <td><%= link_to 'Eliminar', user_path(user),
+              method: :delete,
+              data: { confirm: 'Estas Seguro?' } %></td>
+    </tr>
+  <% end %>
+</table><br>
+
+ <%= link_to "Nuevo Usuario", signup_path, class: "btn btn-primary" %></p>
